@@ -1,0 +1,42 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<br />
+<h3>Cariler</h3>
+<br />
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Şehir</th>
+        <th>Email</th>
+        <th>İşlemler</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.CurrentName</td>
+            <td>@item.CurrentSurname</td>
+            <td>@item.City</td>
+            <td>@item.Email</td>
+            <td>
+                <a href="/Current/DeleteCurrent/@item.CurrentId" class="btn btn-danger">Sil</a>
+                <a href="/Current/UpdateCurrent/@item.CurrentId" class="btn btn-warning">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Current/DetailCurrent/@item.CurrentId" class="btn btn-default"
+                   style="background-color:darksalmon">Satış Detayı</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Current/AddCurrent" class="btn btn-primary">Yeni Cari Ekle</a>
+

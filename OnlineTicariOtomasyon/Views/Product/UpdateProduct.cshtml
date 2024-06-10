@@ -1,11 +1,14 @@
 ﻿@model OnlineTicariOtomasyon.Models.Product
 @{
-    ViewBag.Title = "AddProduct";
+    ViewBag.Title = "UpdateProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <br />
-<h3>Ürün Ekleme</h3>
+<h3>Ürün Güncelleme</h3>
+<br />
 <form method="post">
+    @Html.HiddenFor(x=>x.ProductId)
     <label>ÜRÜN ADI</label>
     @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
     <br />
@@ -23,10 +26,12 @@
     <br />
     <label>KATEGORİ</label>
     @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.category, "Kategoriyi Seçin",
-        new { @class = "form-control" })
+new { @class = "form-control" })
     <br />
+
     <label>RESİM</label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
     <br />
     <button class="btn btn-primary">Kaydet</button>
 </form>
+

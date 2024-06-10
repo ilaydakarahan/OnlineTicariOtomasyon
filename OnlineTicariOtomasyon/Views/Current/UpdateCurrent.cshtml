@@ -1,0 +1,31 @@
+﻿@model OnlineTicariOtomasyon.Models.Current
+@{
+    ViewBag.Title = "UpdateCurrent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Güncelleme Sayfası</h3>
+<form method="post">
+    <input type="hidden" name="CurrentId" value="@Model.CurrentId" />
+
+    <label>Cari Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+    <br />
+    <label>Cari Soyadı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+    <br />
+    <label>Şehir</label>
+    <br />
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    <label>Email</label>
+    <br />
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

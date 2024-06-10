@@ -1,0 +1,27 @@
+﻿@model OnlineTicariOtomasyon.Models.Employee
+@{
+    ViewBag.Title = "UpdateEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Personel Güncelleme</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x => x.EmployeeId)
+    <label>Adı</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label>Soyadı</label>
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <br />
+    <label>Resim</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+    <label>Departman</label>
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.department, "Kategoriyi Seçin",
+        new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+

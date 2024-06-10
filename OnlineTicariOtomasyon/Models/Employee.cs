@@ -21,7 +21,10 @@ namespace OnlineTicariOtomasyon.Models
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string ImageUrl { get; set; }
-        public Department Department { get; set; }
         public ICollection<Sales> Salees { get; set; }
+
+        public int DepartmentId { get; set; }
+        public virtual Department Department { get; set; }
+
     }
 }

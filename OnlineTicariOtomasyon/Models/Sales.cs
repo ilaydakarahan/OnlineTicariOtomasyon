@@ -15,8 +15,11 @@ namespace OnlineTicariOtomasyon.Models
         public decimal Price { get; set; }
         public decimal TotalAmount{ get; set; }
 
-        public Product Product { get; set; }
-        public Employee Employee { get; set; }
-        public Current Current { get; set; }
+        public int ProductId { get; set; }
+        public int CurrentId { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Current Current { get; set; }
     }
 }

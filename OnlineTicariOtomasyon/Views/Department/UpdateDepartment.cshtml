@@ -1,0 +1,20 @@
+﻿@model OnlineTicariOtomasyon.Models.Department
+@{
+    ViewBag.Title = "UpdateDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Güncelleme Sayfası</h3>
+<form method="post">
+    <input type="hidden" name="DepartmentId" value="@Model.DepartmentId" />
+
+    <label>Departman Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+
+
