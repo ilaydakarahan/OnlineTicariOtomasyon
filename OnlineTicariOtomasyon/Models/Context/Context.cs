@@ -18,6 +18,7 @@ namespace OnlineTicariOtomasyon.Models.Context
         public DbSet<InvoiceItem> InvoiceItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Sales> Salees { get; set; }
+        public DbSet<DetailProduct> DetailProducts { get; set; }
 
     }
 }
