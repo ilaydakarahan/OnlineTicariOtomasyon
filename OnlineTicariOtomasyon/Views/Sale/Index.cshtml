@@ -1,0 +1,66 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Sales>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<br />
+<h3>Satışlar</h3>
+<br />
+<table id="tbl1" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tarih</th>
+            <th>Ürün</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam Tutar</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.Date</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Custom</td>
+            <td>@item.TotalAmount</td>
+            <td>@item.Current.CurrentName @item.Current.CurrentSurname</td>
+            <td>@item.Employee.Name @item.Employee.Surname</td>
+            <td>
+                <a href="/Sale/UpdateSale/@item.SalesId" class="btn btn-warning">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Sale/SaleDatail/@item.SalesId" class="btn btn-default"
+                   style="background-color:darksalmon">Detay</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Sale/AddSalee" class="btn btn-primary">Yeni Satış Oluştur</a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+@*<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js "></script>*@
+
+<link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>

@@ -17,6 +17,7 @@ namespace OnlineTicariOtomasyon.Models
         public decimal Quantity { get; set; }   //Miktar
         public decimal UnitPrice { get; set; }  //Birim fiyat
         public decimal TotalAmount { get; set; }    //Toplam tutar
-        public Invoice Invoice { get; set; }    //Bir fatura kaleminin bir faturası olur.
+        public int InvoiceId { get; set; }
+        public virtual Invoice Invoice { get; set; }    //Bir fatura kaleminin bir faturası olur.
     }
 }

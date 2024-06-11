@@ -29,6 +29,9 @@ namespace OnlineTicariOtomasyon.Models
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Receiver { get; set; }
+
+        public decimal Total {  get; set; }
+
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
 }

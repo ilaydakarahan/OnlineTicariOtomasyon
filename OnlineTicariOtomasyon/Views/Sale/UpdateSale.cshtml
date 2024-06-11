@@ -1,0 +1,35 @@
+﻿@model OnlineTicariOtomasyon.Models.Sales
+@{
+    ViewBag.Title = "UpdateSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Satış Güncelleme</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x => x.SalesId)
+    <label>Ürün</label>
+    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.Product, new { @class = "form-control" })
+    <br />
+    <label>Adet</label>
+    @Html.TextBoxFor(x => x.Custom, new { @class = "form-control" })
+    <br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    <label>Toplam Tutar</label>
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    <label>Cari</label>
+    @Html.DropDownListFor(x => x.CurrentId, (List<SelectListItem>)ViewBag.Current, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.Employee, new { @class = "form-control" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
+

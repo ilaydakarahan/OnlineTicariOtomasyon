@@ -1,0 +1,36 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Sales>
+@{
+    ViewBag.Title = "SaleDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Satış Detayı</h3>
+<br />
+
+<table class="table table-condensed">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.SalesId</th>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Employee.Name @item.Employee.Surname</td>
+            <td>@item.Current.CurrentName @item.Current.CurrentSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Custom</td>
+            <td>@item.TotalAmount</td>
+            <td>@item.Date</td>
+        </tr>
+    }
+
+</table>

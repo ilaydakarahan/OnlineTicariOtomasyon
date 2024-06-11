@@ -1,0 +1,31 @@
+﻿@model List<OnlineTicariOtomasyon.Models.InvoiceItem>
+@{
+    ViewBag.Title = "DetailInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Fatura Detay</h3>
+<br />
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.InvoiceItemId</th>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.TotalAmount</td>
+     
+        </tr>
+    }
+</table>
+
+<a href="/Invoice/AddInvoiceItem" class="btn btn-default" style="background-color:darksalmon">Yeni Kalem Girişi</a>

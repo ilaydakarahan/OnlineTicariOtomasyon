@@ -1,0 +1,31 @@
+﻿@model OnlineTicariOtomasyon.Models.Invoice
+@{
+    ViewBag.Title = "AddInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Fatura Ekleme</h3>
+<br />
+<form method="post">
+    <label>SERİ NO</label>
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    <label>SIRA NO</label>
+    @Html.TextBoxFor(x => x.InvoiceSequenceNo, new { @class = "form-control" })
+    <br />
+    <label>TARİH</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <label>VERGİ DAİRESİ</label>
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+    <br />
+    <label>TESLİM EDEN</label>
+    @Html.TextBoxFor(x => x.Deliverer, new { @class = "form-control" })
+    <br />
+    <label>TESLİM ALAN</label>
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
