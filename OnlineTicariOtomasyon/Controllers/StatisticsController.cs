@@ -66,5 +66,11 @@ namespace OnlineTicariOtomasyon.Controllers
 
             return View();
         }
+
+        public ActionResult Tables()
+        {
+            return View();
+        }
+
     }
 }
