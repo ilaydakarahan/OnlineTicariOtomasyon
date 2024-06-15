@@ -69,7 +69,14 @@ namespace OnlineTicariOtomasyon.Controllers
 
         public ActionResult Tables()
         {
-            return View();
+            var values = from x in context.Currents
+                         group x by x.City into y
+                         select new ClassGroup
+                         {
+                             City = y.Key,
+                             Number = y.Count()
+                         };
+            return View(values.ToList());
         }
 
     }
