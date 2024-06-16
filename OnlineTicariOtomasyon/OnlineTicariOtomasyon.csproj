@@ -138,12 +138,15 @@
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\ToDoListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ClassBrand.cs" />
+    <Compile Include="Models\ClassDepartment.cs" />
     <Compile Include="Models\ClassGroup.cs" />
     <Compile Include="Models\Context\Context.cs" />
     <Compile Include="Models\Current.cs" />
@@ -156,6 +159,7 @@
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\ToDoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2837,6 +2841,11 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\Statistics\Tables.cshtml" />
+    <Content Include="Views\Statistics\Department.cshtml" />
+    <Content Include="Views\Statistics\HoverTable.cshtml" />
+    <Content Include="Views\Statistics\ProductTable.cshtml" />
+    <Content Include="Views\Statistics\ProductBrand.cshtml" />
+    <Content Include="Views\ToDoList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

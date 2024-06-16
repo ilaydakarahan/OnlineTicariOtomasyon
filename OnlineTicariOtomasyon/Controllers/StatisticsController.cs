@@ -61,7 +61,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var values = context.Salees.Count(x => x.Date == now).ToString();
             ViewBag.d15 = values;
 
-            var sales = context.Salees.Where(x => x.Date == now).Sum(y => y.TotalAmount).ToString();
+            var sales = context.Salees.Where(x => x.Date == now).Sum(y =>(decimal?)y.TotalAmount).ToString();
             ViewBag.d16 = sales;
 
             return View();
@@ -79,5 +79,40 @@ namespace OnlineTicariOtomasyon.Controllers
             return View(values.ToList());
         }
 
+        public PartialViewResult Department()
+        {
+            ViewBag.departmentname = context.Departments.ToList();
+            var value = from x in context.Employees
+                        group x by x.Department.DepartmentName into y
+                        select new ClassDepartment
+                        {
+                            Department = y.Key,
+                            Number = y.Count()
+                        };
+            return PartialView(value.ToList());
+        }
+
+        public PartialViewResult HoverTable()
+        {
+            var values = context.Currents.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult ProductTable()
+        {
+            var value = context.Products.ToList();
+            return PartialView(value);
+        }
+        public PartialViewResult ProductBrand()
+        {
+            var value = from x in context.Products
+                        group x by x.Brand into g
+                        select new ClassBrand
+                        {
+                            Brand = g.Key,
+                            Number = g.Count()
+                        };
+            return PartialView(value.ToList());
+        }
     }
 }
