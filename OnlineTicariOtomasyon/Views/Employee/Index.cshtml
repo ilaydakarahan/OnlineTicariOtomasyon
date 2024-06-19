@@ -24,7 +24,10 @@
             <th>@item.EmployeeId</th>
             <td>@item.Name</td>
             <td>@item.Surname</td>
-            <td>@item.ImageUrl</td>
+
+            <td>
+                <img src="@item.ImageUrl" style="width:100px;height:100px;" />  
+            </td>
             <td>@item.Department.DepartmentName</td>
             <td>
                 <a href="/Employee/UpdateEmployee/@item.EmployeeId" class="btn btn-warning">Güncelle</a>

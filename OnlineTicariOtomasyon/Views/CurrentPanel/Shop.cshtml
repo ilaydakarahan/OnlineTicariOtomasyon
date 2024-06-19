@@ -1,0 +1,30 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Sales>
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_CurrentLayout.cshtml";
+}
+<br />
+<h2>Sipariş Geçmişim</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Marka</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Product.Brand</td>
+            <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+
+
+
+
+</table> 

@@ -1,0 +1,56 @@
+﻿@model OnlineTicariOtomasyon.Models.Current
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CurrentLayout.cshtml";
+}
+
+<h2>Ticari Otomasyon Cari Bilgileri</h2>
+
+<table class="table table-hover ">
+    <tr>
+        <td>
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.City, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.CurrentPassword, new { @class = "form-control" })</td>
+    </tr>
+</table>
+
+<button class="btn btn-warning">Bilgilerimi Güncelle </button>
+
+@*<form method="post">
+        <table class="table table-hover">
+            <tr>
+                <td>
+                    <label>Mail Adresi : @ViewBag.email </label>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(x => x.City, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(x => x.CurrentPassword, new { @class = "form-control" })</td>
+            </tr>
+        </table>
+        <button class="btn btn-warning">Bilgilerimi Güncelle </button>
+
+    </form>*@
