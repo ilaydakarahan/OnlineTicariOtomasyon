@@ -2179,6 +2179,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\indir %281%29.jpeg.jpeg" />
+    <Content Include="Images\indir %282%29.jpeg.jpeg" />
+    <Content Include="Images\indir %283%29.jpeg.jpeg" />
+    <Content Include="Images\indir %284%29.jpeg.jpeg" />
+    <Content Include="Images\indir %285%29.jpeg.jpeg" />
+    <Content Include="Images\indir %286%29.jpeg.jpeg" />
+    <Content Include="Images\indir.jpeg.jpeg" />
+    <Content Include="Images\stock-person-png-stock-photo-man-11563049686zqeb9zmqjd.png.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -2912,7 +2920,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
