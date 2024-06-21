@@ -61,7 +61,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var values = context.Salees.Count(x => x.Date == now).ToString();
             ViewBag.d15 = values;
 
-            var sales = context.Salees.Where(x => x.Date == now).Sum(y =>(decimal?)y.TotalAmount).ToString();
+            var sales = context.Salees.Where(x => x.Date == now).Sum(y =>(decimal?)y.TotalAmount).ToString();   //Nullable type kullanımı.Hata vermesin diye decimal? kullanılır.
             ViewBag.d16 = sales;
 
             return View();

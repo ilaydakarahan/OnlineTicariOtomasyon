@@ -2,6 +2,7 @@
 using OnlineTicariOtomasyon.Models.Context;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,6 +32,15 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult AddEmployee(Employee employee)
         {
+            if(Request.Files.Count > 0)
+            {
+                string filename = Path.GetFileName(Request.Files[0].FileName);  //Dosya adını aldı.
+                string extension = Path.GetExtension(Request.Files[0].FileName);    //Uzantısını aldı.
+                string image = "~/Images/" + filename + extension;
+                Request.Files[0].SaveAs(Server.MapPath(image));
+                employee.ImageUrl ="/Images/" + filename + extension;
+            }
+
             context.Employees.Add(employee);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -51,6 +61,15 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult UpdateEmployee(Employee employee)
         {
+            if (Request.Files.Count > 0)
+            {
+                string filename = Path.GetFileName(Request.Files[0].FileName);  //Dosya adını aldı.
+                string extension = Path.GetExtension(Request.Files[0].FileName);    //Uzantısını aldı.
+                string image = "~/Images/" + filename + extension;
+                Request.Files[0].SaveAs(Server.MapPath(image));
+                employee.ImageUrl = "/Images/" + filename + extension;
+            }
+
             var values = context.Employees.Find(employee.EmployeeId);
             values.Name = employee.Name;
             values.Surname = employee.Surname;

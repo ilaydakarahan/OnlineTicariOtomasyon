@@ -7,7 +7,7 @@
 <br />
 <h3>Personel Güncelleme</h3>
 <br />
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     @Html.HiddenFor(x => x.EmployeeId)
     <label>Adı</label>
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
@@ -15,8 +15,8 @@
     <label>Soyadı</label>
     @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
     <br />
-    <label>Resim</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label>Resim : </label>
+    <input type="file" name="ImageUrl" />
     <br />
     <label>Departman</label>
     @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.department, "Kategoriyi Seçin",

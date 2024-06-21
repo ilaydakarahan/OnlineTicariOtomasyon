@@ -11,10 +11,14 @@ namespace OnlineTicariOtomasyon.Controllers
     public class ProductController : Controller
     {
         Context db = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var value = db.Products.Where(x=>x.Status==true).ToList();
-            return View(value);
+            var value = from x in db.Products select x;
+            if (!string.IsNullOrEmpty(search))
+            {
+                value = value.Where(y => y.ProductName.Contains(search));
+            }
+            return View(value.ToList());
         }
 
         [HttpGet]

@@ -1,5 +1,6 @@
 ﻿using OnlineTicariOtomasyon.Models;
 using OnlineTicariOtomasyon.Models.Context;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace OnlineTicariOtomasyon.Controllers
     public class CategoryController : Controller
     {
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var values = context.Categories.ToList();
+            var values = context.Categories.ToList().ToPagedList(sayfa,4);
             return View(values);
         }
 

@@ -7,7 +7,7 @@
 <br />
 <h3>Cari Ekle</h3>
 <br />
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <label>Adı</label>
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
     <br />
@@ -15,7 +15,8 @@
     @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
     <br />
     <label>Resim</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    @*Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })*@
+    <input type="file" name="ImageUrl" />
     <br />
     <label>Departman</label>
     @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.department, "Departman Seçin",

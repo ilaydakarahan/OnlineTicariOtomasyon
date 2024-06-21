@@ -24,9 +24,9 @@
             <th>@item.EmployeeId</th>
             <td>@item.Name</td>
             <td>@item.Surname</td>
-            <td>@item.ImageUrl</td>
+            <td><a><img src="@item.ImageUrl" alt="Image" class="img-fluid" style="width:100px;height:100px"></a></td>
             <td>
-                <a href="/Department/DepartmentSales/@item.EmployeeId" class="btn btn-danger">Satışlar</a>
+                <a href="/Department/DepartmentSales/@item.EmployeeId" class="btn btn-default" style="background-color:navajowhite">Satışlar</a>
             </td>
         </tr>
     }

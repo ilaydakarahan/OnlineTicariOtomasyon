@@ -6,9 +6,16 @@
 <br />
 <h3>Ürünler</h3>
 <br />
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <p>
+        Ürün Adı :  @Html.TextBox("search")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<br />
 <table class="table table-bordered table-hover">
     <tr>
-        <th>ID</th>
         <th>ÜRÜN</th>
         <th>MARKA</th>
         <th>STOK</th>
@@ -21,12 +28,11 @@
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.ProductId</th>
             <td>@item.ProductName</td>
             <td>@item.Brand</td>
             <td>@item.Stock</td>
-            <td>@item.PurchasePrice</td>
-            <td>@item.SalePrice</td>
+            <td>@item.PurchasePrice ₺</td>
+            <td>@item.SalePrice ₺</td>
             <td>@item.Category.CategoryName</td>
             <td>
                 <a><img src="@item.ImageUrl" alt="Image" class="img-fluid" style="width:100px;height:100px"></a>

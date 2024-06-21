@@ -9,9 +9,7 @@
 <br />
 <table class="table table-bordered table-hover">
     <tr>
-        <th>ID</th>
-        <th>SERİ NO</th>
-        <th>SIRA NO</th>
+        <th>FATURA NO</th>
         <th>TARİH</th>
         <th>VERGİ DAİRESİ</th>
         <th>TESLİM EDEN</th>
@@ -19,26 +17,51 @@
         <th>TOPLAM</th>
         <th>GÜNCELLE</th>
         <th>DETAYLAR</th>
+        <th>YENİ KALEM</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.InvoiceId</th>
-            <td>@item.InvoiceSerialNo</td>
-            <td>@item.InvoiceSequenceNo</td>
+            <td>@item.InvoiceSerialNo - @item.InvoiceSequenceNo</td>
             <td>@item.Date</td>
             <td>@item.TaxOffice</td>
             <td>@item.Deliverer</td>
             <td>@item.Receiver</td>
             <td>@item.Total</td>
-            <td>
-                <a href="/Invoice/UpdateInvoice/@item.InvoiceId" class="btn btn-info">Güncelle</a>
-            </td>
-            <td>
-                <a href="/Invoice/DetailInvoice/@item.InvoiceId" class="btn btn-default" style="background-color:lightcoral; color:white">Detay</a>
-            </td>
+            <td><a href="/Invoice/UpdateInvoice/@item.InvoiceId" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/Invoice/DetailInvoice/@item.InvoiceId" class="btn btn-default" style="background-color:lightcoral; color:white">Detay</a></td>
+            <td><a href="/Invoice/DetailInvoice/@item.InvoiceId" class="btn btn-default" style="background-color:indianred; color:white">Kalem</a></td>
         </tr>
     }
 </table>
 <a href="/Invoice/AddInvoice" class="btn btn-primary">Yeni Fatura</a>
+<br /><br />
+<button type="button" class="btn btn-primary" style="background-color:darkcyan; color:white" data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>
 
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Popup Diyalog Ekranı </h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Seri - Sıra No</th>
+                        <th>Tutar</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.InvoiceSerialNo - @item.InvoiceSequenceNo</th>
+                            <td>@item.Total</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
