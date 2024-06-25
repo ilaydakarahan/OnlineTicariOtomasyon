@@ -83,5 +83,28 @@ namespace OnlineTicariOtomasyon.Controllers
             var values = db.Products.ToList();
             return View(values);
         }
+        [HttpGet]
+        public ActionResult MakeSale(int id)
+        {
+            List<SelectListItem> employee = (from x in db.Employees.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.Name + " " + x.Surname,
+                                                 Value = x.EmployeeId.ToString()
+                                             }).ToList();
+            ViewBag.employee = employee;    
+            var value = db.Products.Find(id);
+            ViewBag.id = value.ProductId;
+            ViewBag.price = value.SalePrice;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeSale(Sales sales)
+        {
+            sales.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.Salees.Add(sales);
+            db.SaveChanges();
+            return RedirectToAction("Index" , "Sale");
+        }
     }
 }

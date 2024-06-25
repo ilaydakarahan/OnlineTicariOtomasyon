@@ -24,6 +24,7 @@
         <th>KATEGORİ</th>
         <th>RESİM</th>
         <th>İŞLEMLER</th>
+        <th>SATIŞ YAP</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -41,6 +42,7 @@
                 <a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
                 <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a>
             </td>
+            <td><a href="/Product/MakeSale/@item.ProductId" class="btn btn-default" style="background-color:chocolate">Satış Yap</a></td>
         </tr>
     }
 </table>

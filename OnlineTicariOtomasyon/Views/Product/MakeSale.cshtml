@@ -1,0 +1,45 @@
+﻿@model OnlineTicariOtomasyon.Models.Sales
+@{
+    ViewBag.Title = "MakeSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Yeni Satış</h3>
+<form method="post">
+    <label>TARİH</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <label>ÜRÜN ID</label>
+    <input type="text" name="ProductId" value="@ViewBag.id" class="form-control" readonly />
+    <br />
+    <label>PERSONEL ID</label>
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.employee, "Personeli Seçin",
+    new { @class = "form-control" })
+    <br />
+    <label>CARİ ID</label>
+    @Html.TextBoxFor(x => x.CurrentId, new { @class = "form-control" })
+    <br />
+    <label>ADET</label>
+    <input type="text" class="form-control" name="Custom" id="txt1" onkeyup="sum();" />
+    <br />
+    <label>FİYAT</label>
+    <input type="text" class="form-control" name="Price" value="@ViewBag.price" id="txt2" onkeyup="sum();" />
+    <br />
+    <label>TOPLAM TUTAR</label>
+    <input type="text" class="form-control" name="TotalAmount" value="0" id="txt3" readonly />
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+<br />
+
+<!--adet sayısı girince bu fonksiyon sayesinde toplam tutar otomatik çarpılıp yazılıyor.-->
+<script>
+    function sum() {
+        var number1 = document.getElementById('txt1').value; 
+        var number2 = document.getElementById('txt2').value; 
+        var sonuc = parseInt(number1) * parseInt(number2);
+        if (!isNaN(sonuc)) {
+            document.getElementById('txt3').value = sonuc;
+        }
+    }
+</script>

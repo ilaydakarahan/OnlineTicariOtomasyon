@@ -150,8 +150,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406251414595_cargo.cs" />
+    <Compile Include="Migrations\202406251414595_cargo.Designer.cs">
+      <DependentUpon>202406251414595_cargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\CargoDetail.cs" />
+    <Compile Include="Models\CargoTracking.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ClassBrand.cs" />
     <Compile Include="Models\ClassDepartment.cs" />
@@ -2917,6 +2923,7 @@
     <Content Include="Views\Shared\_CurrentLayout.cshtml" />
     <Content Include="Views\CurrentPanel\Index.cshtml" />
     <Content Include="Views\CurrentPanel\Shop.cshtml" />
+    <Content Include="Views\Product\MakeSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2957,6 +2964,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202406251414595_cargo.resx">
+      <DependentUpon>202406251414595_cargo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
