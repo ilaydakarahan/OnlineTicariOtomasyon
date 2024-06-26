@@ -1,0 +1,39 @@
+﻿@model List<OnlineTicariOtomasyon.Models.CargoDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Kargolar</h3>
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip No :  @Html.TextBox("search")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<br />
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Takip Kodu</th>
+        <th>Tarih</th>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.TrackingNo</th>
+            <td>@item.CargoDate</td>
+            <td>@item.Staff</td>
+            <td>@item.Recipient</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+</table>
+<a href="/Cargo/AddCargo" class="btn btn-primary">Kargo Oluştur</a>
+

@@ -1,0 +1,26 @@
+﻿@model OnlineTicariOtomasyon.Models.CargoDetail
+@{
+    ViewBag.Title = "AddCargo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kargo Oluştur</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Takip Kodu</label>
+    <input type="text" value="@ViewBag.trackingNumber" name="TrackingNo" class="form-control" readonly />
+    <br />
+    <label>Personel</label>
+    @Html.TextBoxFor(x => x.Staff, new { @class = "form-control" })
+    <br />
+    <label>Alıcı</label>
+    @Html.TextBoxFor(x => x.Recipient, new { @class = "form-control" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.CargoDate, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.CargoDate, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
