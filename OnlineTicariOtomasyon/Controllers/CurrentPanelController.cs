@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class CurrentPanelController : Controller
     {
         Context db = new Context();
-        [Authorize]
+        
         public ActionResult Index()
         {
             var mail = (string)Session["Email"];
@@ -25,5 +27,24 @@ namespace OnlineTicariOtomasyon.Controllers
             var values = db.Salees.Where(x => x.CurrentId == id).ToList();
             return View(values);
         }
-    }
+        public ActionResult CargoTracking(string number)
+        {
+            var value = from x in db.CargoDetails select x;
+            value = value.Where(y => y.TrackingNo.Contains(number));
+            return View(value.ToList());
+        }
+
+		public ActionResult CurrentCargoTracking(string id)
+		{
+			var values = db.CargoTrackings.Where(x => x.TrackingNo == id).ToList();
+			return View(values);
+		}
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+	}
 }

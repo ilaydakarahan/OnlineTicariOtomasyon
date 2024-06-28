@@ -142,7 +142,9 @@
     <Compile Include="Controllers\CurrentPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -172,7 +174,9 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DetailProduct.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeDep.cs" />
     <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\Graphics.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceItem.cs" />
     <Compile Include="Models\List.cs" />
@@ -2932,9 +2936,16 @@
     <Content Include="Views\Cargo\Index.cshtml" />
     <Content Include="Views\Cargo\AddCargo.cshtml" />
     <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Graphic\Graphics.cshtml" />
+    <Content Include="Views\Graphic\EmployeeIndex.cshtml" />
+    <Content Include="Views\CurrentPanel\CargoTracking.cshtml" />
+    <Content Include="Views\Cargo\CargoTakip.cshtml" />
+    <Content Include="Views\CurrentPanel\CurrentCargoTracking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

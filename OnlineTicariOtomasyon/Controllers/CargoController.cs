@@ -59,5 +59,11 @@ namespace OnlineTicariOtomasyon.Controllers
 		//	}			
 		//	return result.ToString();
 		//}
+
+		public ActionResult CargoTakip(string id)
+		{
+			var values = db.CargoTrackings.Where(x=>x.TrackingNo == id).ToList();
+			return View(values);
+		}
 	}
 }
