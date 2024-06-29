@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    public class EmployeeController : Controller
+	public class EmployeeController : Controller
     {
         Context context = new Context();
         public ActionResult Index()

@@ -165,6 +165,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CargoDetail.cs" />
     <Compile Include="Models\CargoTracking.cs" />
+    <Compile Include="Models\Cascading.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ClassBrand.cs" />
     <Compile Include="Models\ClassDepartment.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Models\Current.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DetailProduct.cs" />
+    <Compile Include="Models\DynamicInvoice.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeDep.cs" />
     <Compile Include="Models\Expense.cs" />
@@ -184,6 +186,7 @@
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\ToDoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
@@ -2017,22 +2020,10 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Content\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap-utilities.min.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrap.rtl.css" />
-    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
@@ -2192,6 +2183,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\indir %281%29.jpeg.jpeg" />
@@ -2202,10 +2194,6 @@
     <Content Include="Images\indir %286%29.jpeg.jpeg" />
     <Content Include="Images\indir.jpeg.jpeg" />
     <Content Include="Images\stock-person-png-stock-photo-man-11563049686zqeb9zmqjd.png.png" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.esm.js" />
-    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -2694,6 +2682,14 @@
     <Content Include="AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.0.4\README.md" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2942,35 +2938,15 @@
     <Content Include="Views\CurrentPanel\CargoTracking.cshtml" />
     <Content Include="Views\Cargo\CargoTakip.cshtml" />
     <Content Include="Views\CurrentPanel\CurrentCargoTracking.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Category\ProductCategoryList.cshtml" />
+    <Content Include="Views\Invoice\Dynamic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\bootstrap.esm.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>

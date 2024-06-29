@@ -1,0 +1,60 @@
+﻿@model OnlineTicariOtomasyon.Models.Cascading
+@{
+    ViewBag.Title = "ProductCategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('#DropKategory').change(function () {
+
+            var id = $('#DropKategory').val();
+
+            $.ajax({
+
+                url: '/Category/UrunGetir',
+
+                data: { p: id },
+
+                type: "POST",
+
+                dataType: "Json",
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    $('#DropUrun').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $('#DropUrun').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
+
+<br />
+<div>
+    <h3>Kategori - Ürün</h3>
+</div>
+<br />
+<div>
+    <label>Kategoriler</label>
+    @Html.DropDownList("DropKategory", Model.Kategoriler, "Kategori Seçin..", new { @class = "form-control" })
+    <br />
+    <label>Ürünler</label>
+    @Html.DropDownList("DropUrun", Model.Urunler, "Ürün Seçin..", new { @class = "form-control" })
+</div>

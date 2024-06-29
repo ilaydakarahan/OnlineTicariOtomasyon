@@ -53,5 +53,28 @@ namespace OnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ProductCategoryList()
+        {
+
+			Cascading cascading = new Cascading();
+			cascading.Kategoriler = new SelectList(context.Categories, "CategoryId", "CategoryName");
+			cascading.Urunler = new SelectList(context.Products, "ProductId", "ProductName");
+			return View(cascading);
+		}
+
+        public JsonResult UrunGetir(int p)
+        {
+            var urunlist = (from x in context.Products
+                            join y in context.Categories
+                            on  x.CategoryId equals y.CategoryId
+                            where x.CategoryId == p
+                            select new
+                            {
+                                Text = x.ProductName,
+                                Value = x.ProductId.ToString()
+                            }).ToList();
+            return Json(urunlist, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    public class SaleController : Controller
+	public class SaleController : Controller
     {
         Context context = new Context();
         public ActionResult Index()

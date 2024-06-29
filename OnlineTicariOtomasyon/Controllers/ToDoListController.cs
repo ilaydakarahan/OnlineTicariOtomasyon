@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    public class ToDoListController : Controller
+	public class ToDoListController : Controller
     {
         Context db = new Context();
         public ActionResult Index()

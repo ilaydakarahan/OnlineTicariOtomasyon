@@ -8,7 +8,6 @@ using System.Web.Security;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    [Authorize]
     public class CurrentPanelController : Controller
     {
         Context db = new Context();

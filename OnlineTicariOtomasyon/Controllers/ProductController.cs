@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    public class ProductController : Controller
+	public class ProductController : Controller
     {
         Context db = new Context();
         public ActionResult Index(string search)
@@ -32,6 +32,7 @@ namespace OnlineTicariOtomasyon.Controllers
                                              }).ToList();
             ViewBag.category = category;
             return View();
+
         }
         [HttpPost]
         public ActionResult AddProduct(Product product)

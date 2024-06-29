@@ -8,7 +8,9 @@ using System.Web.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
-    public class InvoiceController : Controller
+
+	[Authorize(Roles = "A")]
+	public class InvoiceController : Controller
     {
         Context context = new Context();
         public ActionResult Index()
@@ -66,5 +68,42 @@ namespace OnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Dynamic()
+        {
+            DynamicInvoice _dynamicInvoice = new DynamicInvoice();
+            _dynamicInvoice.value1 = context.Invoices.ToList();
+            _dynamicInvoice.value2 = context.InvoiceItems.ToList();
+            return View(_dynamicInvoice);
+        
+        }
+
+        public ActionResult InvoiceSave(string InvoiceSerialNo, string InvoiceSequenceNo, DateTime Date, string TaxOffice,
+			string Deliverer, string Receiver, string Total, InvoiceItem[] items)
+        {
+            Invoice invoice = new Invoice();
+            invoice.InvoiceSerialNo = InvoiceSerialNo;
+            invoice.InvoiceSequenceNo = InvoiceSequenceNo;
+            invoice.Date = Date;
+            invoice.TaxOffice = TaxOffice;
+            invoice.Receiver = Receiver;
+            invoice.Deliverer = Deliverer;
+            invoice.Total = decimal.Parse(Total);
+
+            context.Invoices.Add(invoice);
+            foreach (var x in items)
+            {
+                InvoiceItem iv = new InvoiceItem();
+                iv.Description = x.Description; //iv olan veritabanındaki değeri tutar, x olan dışarıdan gelen parametredeki değeri tutar.
+                iv.UnitPrice = x.UnitPrice;
+                iv.InvoiceId = x.InvoiceItemId;
+                iv.Quantity = x.Quantity;
+                iv.TotalAmount = x.TotalAmount;
+                context.InvoiceItems.Add(iv);
+            
+            }
+
+            context.SaveChanges();
+            return Json("İşlem Başarılı." , JsonRequestBehavior.AllowGet);
+        }
     }
 }
